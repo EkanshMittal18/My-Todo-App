@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyTodoApp - Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</head>
+<body>
+
+
+
+<!-- NAVBAR -->
+<nav class="dashboard-nav">
+  <span id="open-sidebar" class="menu-btn">☰</span>
+  <h2>MyTodoApp</h2>
+  <div id="profile-avatar" class="profile-avatar">U</div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3>MyTodoApp</h3>
+    <span id="close-sidebar">✖</span>
+  </div>
+
+  <div class="sidebar-profile">
+    <div class="sidebar-avatar" id="sidebar-avatar">U</div>
+    <p id="sidebar-name">User</p>
+    <small id="sidebar-email">email@gmail.com</small>
+  </div>
+
+  <ul class="sidebar-menu">
+  <li data-target="section-dashboard">📊 Dashboard</li>
+  <li data-target="section-create">➕ Create Task</li>
+  <li data-target="section-analytics">📈 Analytics</li>
+  <li data-target="section-rewards">🎁 Rewards</li>
+  <li data-target="section-settings">⚙ Settings</li>
+
+  <li id="sidebar-logout">🚪 Logout</li>
+</ul>
+
+</div>
+
+<!-- MAIN -->
+<div class="dashboard-container">
+
+  <!-- GREETING -->
+  <div class="dashboard-greeting glass-card">
+    <div class="greeting-left">
+      <h2 id="greeting-text">Good Morning</h2>
+      <p id="today-date"></p>
+    </div>
+
+    <div class="pending-box">
+      <span>Your Pending Tasks</span>
+      <h3 id="pending-count-big">0</h3>
+    </div>
+  </div>
+
+  <!-- CREATE TASK -->
+  <!-- DASHBOARD SECTIONS -->
+
+<section class="dash-section active" id="section-dashboard">
+
+<h3>Your Tasks</h3>
+
+<div class="task-controls">
+
+<input type="text" id="task-search" placeholder="Search tasks...">
+
+<select id="task-filter">
+<option value="all">All</option>
+<option value="completed">Completed</option>
+<option value="pending">Pending</option>
+<option value="high">High Priority</option>
+<option value="medium">Medium Priority</option>
+<option value="low">Low Priority</option>
+</select>
+
+</div>
+
+<ul id="todo-list"></ul>
+
+</section>
+
+<!-- CREATE TASK SECTION -->
+
+<section class="dash-section" id="section-create">
+
+<div class="task-form">
+
+<h3>Create New Task</h3>
+
+<div class="create-card">
+
+<div class="input-group">
+<label>Task Name</label>
+<div class="input-icon">
+<input type="text" id="todo-input" placeholder="Task Name">
+<span>✏️</span>
+</div>
+</div>
+
+<div class="input-group">
+<label>Notes</label>
+<div class="input-icon textarea">
+<textarea id="task-desc" placeholder="Add description"></textarea>
+<span>📝</span>
+</div>
+</div>
+
+<div class="task-options">
+
+<div class="option-chip">
+<span>📅 Due Date</span>
+<input type="date" id="deadline-input">
+</div>
+
+<div class="option-chip">
+<select id="priority-select">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+</div>
+
+<div class="option-chip toggle-chip">
+
+<span>✉ Email Reminder</span>
+
+<label class="switch">
+<input type="checkbox" id="create-email-reminder-toggle">
+<span class="slider"></span>
+</label>
+
+</div>
+
+</div>
+
+<input type="datetime-local" id="reminder-time" class="reminder-hidden">
+
+<button id="add-todo-btn" class="create-btn">
+<span class="btn-text">Create Task</span>
+<span class="btn-loader"></span>
+<span class="btn-check">✔</span>
+</button>
+
+</div>
+</div>
+
+</section>
+
+  
+
+<section class="dash-section" id="section-analytics">
+  <h3>Task Analytics</h3>
+
+  <div class="analytics-cards">
+    <div class="analytics-card total">
+      <h4>Total</h4>
+      <p id="chart-total">0</p>
+    </div>
+
+    <div class="analytics-card completed">
+      <h4>Completed</h4>
+      <p id="chart-completed">0</p>
+    </div>
+
+    <div class="analytics-card pending">
+      <h4>Pending</h4>
+      <p id="chart-pending">0</p>
+    </div>
+  </div> 
+
+  <div class="analytics-charts">
+
+  <div class="chart-box glass-card">
+    <canvas id="taskChart"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <h3>Weekly Task Activity</h3>
+    <canvas id="weeklyChart"></canvas>
+  </div>
+
+</div>
+
+  <div class="weekly-analytics">
+
+<h3>Weekly Task Report</h3>
+
+<div class="week-grid">
+
+<div class="day-card">
+<h4>Monday</h4>
+<p>Total: <span id="mon-total">0</span></p>
+<p>Completed: <span id="mon-completed">0</span></p>
+<p>Pending: <span id="mon-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Tuesday</h4>
+<p>Total: <span id="tue-total">0</span></p>
+<p>Completed: <span id="tue-completed">0</span></p>
+<p>Pending: <span id="tue-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Wednesday</h4>
+<p>Total: <span id="wed-total">0</span></p>
+<p>Completed: <span id="wed-completed">0</span></p>
+<p>Pending: <span id="wed-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Thursday</h4>
+<p>Total: <span id="thu-total">0</span></p>
+<p>Completed: <span id="thu-completed">0</span></p>
+<p>Pending: <span id="thu-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Friday</h4>
+<p>Total: <span id="fri-total">0</span></p>
+<p>Completed: <span id="fri-completed">0</span></p>
+<p>Pending: <span id="fri-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Saturday</h4>
+<p>Total: <span id="sat-total">0</span></p>
+<p>Completed: <span id="sat-completed">0</span></p>
+<p>Pending: <span id="sat-pending">0</span></p>
+</div>
+
+<div class="day-card">
+<h4>Sunday</h4>
+<p>Total: <span id="sun-total">0</span></p>
+<p>Completed: <span id="sun-completed">0</span></p>
+<p>Pending: <span id="sun-pending">0</span></p>
+</div>
+
+</div>
+</div>
+
+</section> 
+
+
+<section class="dash-section" id="section-rewards">
+  <h3>Rewards</h3>
+  <div class="reward-card glass-card">
+    <h4>🔥 Current Streak</h4>
+    <p id="streak-count">0 Days</p>
+  </div>
+</section>
+
+<section class="dash-section" id="section-settings">
+  <h3>Settings</h3>
+
+  <div class="settings-card">
+    <button id="open-edit-profile">✏️ Edit Profile</button>
+
+    <label class="setting-toggle">
+      <input type="checkbox" id="email-reminder-toggle">
+      📧 Email Reminders
+    </label>
+
+    <label class="setting-toggle">
+      <input type="checkbox" id="device-reminder-toggle">
+      🔔 Device Notifications
+    </label>
+
+    <button id="toggle-dark-mode">🌙 Dark Mode</button>
+  </div>
+</section>
+
+
+<script type="module" src="dashboard.js"></script>
+
+<div id="toast" class="toast">
+✔ Your task has been created successfully
+</div>
+
+</body>
+</html>

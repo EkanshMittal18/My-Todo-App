@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTodoApp - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">MyTodoApp</div>
+
+    <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact us</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+        <button class="login-btn">Login</button>
+        <button class="signup-btn">Sign Up</button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-text">
+            <span class="hero-tag">Productivity Made Simple</span>
+
+            <h1>
+                Smart Todo Management <br>
+                <span>at Your Fingertips</span>
+            </h1>
+
+            <p>
+                Organize your daily tasks, manage priorities and stay productive
+                with a clean and secure todo app.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="get-started">Get Started</button>
+                <button class="secondary-btn">How it works</button>
+            </div>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="hero-image">
+    <img 
+        src="assets/hero1.svg" 
+        alt="Todo App Illustration"
+        id="hero-slider"
+    >
+</div>
+
+
+    </div>
+</section>
+
+<!-- AUTH MODAL -->
+<div id="auth-modal" class="modal">
+    <div class="modal-inner">
+        <span class="close-modal">&times;</span>
+
+        <!-- LOGIN FORM -->
+        <div id="login-form" class="auth-form">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email Address">
+            <input type="password" id="login-password" placeholder="Password">
+            <button type="button" id="login-submit" class="modal-btn">Login</button>
+            <p class="switch-auth">
+                Don’t have an account?
+                <a href="#" id="go-signup">Sign Up</a>
+            </p>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signup-form" class="auth-form hidden">
+            <h2>Create Account</h2>
+            <input type="text" id="signup-name" placeholder="Full Name">
+            <input type="email" id="signup-email" placeholder="Email Address">
+            <input type="password" id="signup-password" placeholder="Password">
+            <input type="password" id="signup-confirm" placeholder="Confirm Password">
+            <button type="button" id="signup-submit" class="modal-btn">Sign Up</button>
+            <p class="switch-auth">
+                Already have an account?
+                <a href="#" id="go-login">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- About -->
+<section id="about" class="about-section">
+    <div class="about-container">
+
+        <!-- left: IMAGE -->
+        <div class="about-image">
+            <img src="assets/about1.svg" alt="About MyTodoApp illustration" id="about-slider">
+        </div>
+
+        <!-- right: TEXT CONTENT -->
+        <div class="about-text">
+            <span class="about-tag">About MyTodoApp</span>
+
+            <h2>
+                Designed to Make <br>
+                Daily Task Management Easier
+            </h2>
+
+            <p>
+                MyTodoApp is built with a simple idea — helping users organize
+                their daily tasks in a clear and distraction-free way.
+            </p>
+
+            <p>
+                Instead of overwhelming users with complex tools, the app focuses
+                on simplicity and ease of use, making task management feel natural
+                and efficient.
+            </p>
+
+            <p>
+                Whether you're planning your day, tracking tasks or managing
+                routines, MyTodoApp fits smoothly into your workflow.
+            </p>
+        </div>
+
+        
+
+    </div>
+</section>
+
+
+<!-- Features -->
+<section id="features" class="features-section">
+    <div class="features-header">
+        <span class="features-tag">Features</span>
+        <h2>
+            Powerful Features <br>
+            Designed for Productivity
+        </h2>
+        <p>
+            MyTodoApp offers carefully designed features that help you
+            stay organized, focused, and productive every day.
+        </p>
+    </div>
+
+    <!-- HORIZONTAL SCROLL CONTAINER -->
+    <div class="features-scroll">
+
+        <div class="feature-card">
+            <h3>Simple & Clean Interface</h3>
+            <p>
+                A minimal and distraction-free design that helps users
+                focus only on their tasks without unnecessary clutter.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Priority-Based Tasks</h3>
+            <p>
+                Organize your todos using High, Medium, and Low priorities
+                so you always know what needs attention first.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Secure Authentication</h3>
+            <p>
+                Your account is protected using Firebase Authentication,
+                ensuring secure login and safe access to your data.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Real-Time Data Sync</h3>
+            <p>
+                All your tasks are saved and updated in real-time, so
+                nothing is lost even after refreshing the page.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>User Profile Management</h3>
+            <p>
+                Manage your profile information easily, including your
+                username and future profile picture support.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Responsive Design</h3>
+            <p>
+                The app works smoothly across different screen sizes,
+                providing a consistent experience on all devices.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Fast & Lightweight</h3>
+            <p>
+                Built with optimized code to ensure fast performance
+                without slowing down your device or browser.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- LEFT: CONTACT INFO -->
+        <div class="contact-info">
+            <span class="contact-tag">Contact</span>
+
+            <h2>Let’s Connect</h2>
+
+            <p>
+                Have a question, feedback, or suggestion?
+                Feel free to reach out — I’d love to hear from you.
+            </p>
+
+            <p>
+                This project is actively maintained, and I usually
+                respond within 24 hours.
+            </p>
+
+            <!-- SOCIAL LINKS -->
+            <div class="contact-socials">
+    <a href="https://instagram.com/ekanshmittal__" target="_blank" aria-label="Instagram">
+        <!-- Instagram SVG yahan paste -->
+         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+    </a>
+
+    <a href="https://linkedin.com/in/ekansh-mittal-76b84b320/" target="_blank" aria-label="LinkedIn">
+        <!-- LinkedIn SVG yahan paste -->
+         <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z" fill="#0F0F0F"/>
+<path d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z" fill="#0F0F0F"/>
+<path d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z" fill="#0F0F0F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z" fill="#0F0F0F"/>
+</svg>
+    </a>
+</div>
+
+
+            <p class="contact-note">
+                Built & maintained by a student developer from India 🇮🇳
+            </p>
+        </div>
+
+        <!-- RIGHT: CONTACT FORM -->
+        <div class="contact-form-box">
+            <form id="contact-form">
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea name="message" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+<div id="blur-bg"></div>
+
+<footer>
+    <p>© 2026 MyTodoApp</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("MRF49Npx00UsDFDlF");
+  })();
+</script>
+
+<!-- ONLY JS -->
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

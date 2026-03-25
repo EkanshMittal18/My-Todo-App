@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MAIN GLOBAL CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== PROFILE PAGE WRAPPER (IMPORTANT) ===== -->
+  <div class="profile-page">
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="profile-topbar">
+      <h2>Profile Settings</h2>
+      <button onclick="window.location.href='dashboard.html'">← Back</button>
+    </div>
+
+    <!-- ===== PROFILE CONTAINER ===== -->
+    <div class="profile-container">
+
+      <!-- ===== PROFILE CARD ===== -->
+      <div class="profile-card">
+
+        <!-- HEADER -->
+        <div class="profile-header">
+          <div id="profile-avatar-large">U</div>
+
+          <div>
+            <h3 id="profile-name-view">User Name</h3>
+            <p id="profile-email-view">user@email.com</p>
+          </div>
+        </div>
+
+        <!-- ===== FORM ===== -->
+        <div class="profile-form">
+
+          <label>Email</label>
+          <input type="email" id="profile-email" disabled>
+
+          <label>Name</label>
+          <input type="text" id="profile-name" disabled>
+
+          <div class="profile-actions">
+            <button id="edit-btn" class="btn-outline">Edit</button>
+            <button id="save-btn" class="btn-primary" disabled>
+              Save Changes
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROFILE JS -->
+  <script type="module" src="profile.js"></script>
+</body>
+</html>
