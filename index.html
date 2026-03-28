@@ -10,7 +10,11 @@
 
 <!-- Navigation Bar -->
 <nav class="navbar">
+    <!-- ADD THIS -->
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+
     <div class="logo">MyTodoApp</div>
+
 
     <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
@@ -24,6 +28,21 @@
         <button class="signup-btn">Sign Up</button>
     </div>
 </nav>
+
+<!-- MOBILE SIDEBAR -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h3>Menu</h3>
+        <span onclick="toggleSidebar()">✖</span>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact us</a></li>
+    </ul>
+</div>
 
 <!-- Hero Section -->
 <section class="hero" id="hero">

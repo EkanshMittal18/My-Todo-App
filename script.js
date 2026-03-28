@@ -405,3 +405,7 @@ featuresContainer.addEventListener("touchend", () => {
 
 // start auto scroll
 startAutoScroll();
+
+window.toggleSidebar = function () {
+  document.getElementById("sidebar").classList.toggle("active");
+};
