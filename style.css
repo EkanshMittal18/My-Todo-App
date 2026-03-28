@@ -2501,3 +2501,148 @@ z-index:9999;
 opacity:1;
 transform:translateY(0);
 }
+
+/* ================= MOBILE NAVBAR FIX ================= */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none; /* hide links */
+  }
+
+  .nav-buttons {
+    gap: 6px;
+  }
+
+  .nav-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+}
+
+/* ================= HERO MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  .hero-image {
+    height: auto;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-height: 250px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .features-header h2 {
+    font-size: 26px;
+  }
+
+  .feature-card {
+    flex: 0 0 220px;
+    padding: 18px;
+  }
+
+}
+
+/* ================= DASHBOARD MOBILE ================= */
+@media (max-width: 768px) {
+
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-greeting {
+    padding: 20px;
+  }
+
+  .greeting-left {
+    max-width: 100%;
+  }
+
+  .greeting-left h2 {
+    font-size: 22px;
+  }
+
+  .pending-box h3 {
+    font-size: 24px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .todo-box {
+    flex-direction: column;
+  }
+
+  .todo-box button {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .analytics-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-box {
+    height: auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .task-meta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-meta button {
+    width: 100%;
+  }
+
+  .task-options {
+    flex-direction: column;
+  }
+
+}
+
