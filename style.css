@@ -1611,18 +1611,7 @@ transform:scale(1.08);
   }
 }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100vh;
-  background: #111827;
-  color: white;
-  padding: 20px;
-  transition: 0.3s ease;
-  z-index: 999;
-}
+
 
 .sidebar.active {
   left: 0;
@@ -1678,9 +1667,7 @@ transform:scale(1.08);
   cursor: pointer;
 }
 
-.sidebar-menu li:hover {
-  background: #1f2937;
-}
+
 
 /* hamburger */
 .menu-btn {
@@ -2687,8 +2674,8 @@ transform:translateY(0);
   width: 260px;
   height: 100vh;
 
-  background: linear-gradient(135deg, #0b0c0ce1, #000000);
-  color: white;
+  background: linear-gradient(135deg,#2563eb, #3b82f6);
+  color: rgb(234, 228, 228);
 
   padding: 20px;
   transition: 0.35s ease;
@@ -2709,4 +2696,34 @@ transform:translateY(0);
     display: block;
   }
 
+}
+
+.sidebar-menu a.active {
+  background: white;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+/* CLEAN HOVER */
+.sidebar-menu a:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateX(4px);
+}
+/* HOVER */
+
+
+/* REMOVE DEFAULT LINK STYLE */
+.sidebar-menu a {
+  text-decoration: none;
+  color: white;   /* ya light color */
 }
