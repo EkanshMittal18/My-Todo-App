@@ -6,6 +6,11 @@ import {
   updateProfile
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+import { 
+  GoogleAuthProvider, 
+  signInWithPopup 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 
 // ================= ELEMENTS =================
 const modal = document.getElementById("auth-modal");
@@ -409,3 +414,25 @@ startAutoScroll();
 window.toggleSidebar = function () {
   document.getElementById("sidebar").classList.toggle("active");
 };
+
+window.loginWithGoogle = loginWithGoogle;
+
+function loginWithGoogle() {
+
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+
+      const user = result.user;
+      console.log(user);
+
+      alert("Google Login Successful ✅");
+
+      window.location.href = "dashboard.html";
+
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}
