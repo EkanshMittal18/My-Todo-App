@@ -1,5 +1,5 @@
 // ================= FIREBASE =================
-import { auth } from "./firebase.js";
+import { auth } from "./firebase-config.js";
 import {
   onAuthStateChanged,
   updateProfile

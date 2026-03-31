@@ -1,32 +1,40 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require("firebase-functions");
+const nodemailer = require("nodemailer");
 
-const {setGlobalOptions} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
-const logger = require("firebase-functions/logger");
+// 🔐 Gmail transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "mytodoaap@gmail.com",
+    pass: "takczjghwnmdwsfo"
+  }
+});
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
-setGlobalOptions({maxInstances: 10});
+// 🚀 Trigger on new user signup
+exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
+  
+  const email = user.email;
+  const name = user.displayName || email.split("@")[0];
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+  const mailOptions = {
+    from: "MyTodoApp <mytodoaap@gmail.com>",
+    to: email,
+    subject: "Welcome to MyTodoApp 🎉",
+    html: `
+      <div style="font-family:sans-serif">
+        <h2>Welcome ${name} 👋</h2>
+        <p>We are excited to have you on MyTodoApp 🚀</p>
+        <p>Start managing your tasks and boost productivity 💪</p>
+        <br/>
+        <a href="https://new1todoapp.netlify.app/"
+           style="padding:10px 20px;background:#4CAF50;color:white;text-decoration:none;border-radius:5px;">
+           Start Now
+        </a>
+      </div>
+    `
+  };
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+  return transporter.sendMail(mailOptions)
+    .then(() => console.log("Email sent ✅"))
+    .catch(err => console.log("Error:", err));
+});

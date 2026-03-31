@@ -2742,3 +2742,92 @@ transform:translateY(0);
 .google-btn:hover {
   background: #f3f4f6;
 }
+
+
+/* SETTINGS MODERN UI */
+.settings-card.modern {
+  width: 380px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.btn-edit {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-edit:hover {
+  transform: scale(1.05);
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  width: 45px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  background: #ccc;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #4facfe;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}

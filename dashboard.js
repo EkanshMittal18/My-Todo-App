@@ -1,5 +1,5 @@
 // ================= FIREBASE =================
-import { auth, db } from "./firebase.js";
+import { auth, db } from "./firebase-config.js";
 (function(){
 emailjs.init("MRF49Npx00UsDFDlF");
 })();
@@ -51,7 +51,7 @@ const createEmailToggle = document.getElementById("create-email-reminder-toggle"
 const reminderTimeInput = document.getElementById("reminder-time");
 const deviceToggle = document.getElementById("device-reminder-toggle");
 const editProfileBtn = document.getElementById("open-edit-profile");
-const darkModeBtn = document.getElementById("toggle-dark-mode");
+const darkModeBtn = document.getElementById("dark-mode-toggle");
 
 let taskChart = null;
 let weeklyChart = null;

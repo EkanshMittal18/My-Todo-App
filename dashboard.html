@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>MyTodoApp - Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4facfe">
+  <link rel="apple-touch-icon" href="icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -259,22 +262,55 @@
 </section>
 
 <section class="dash-section" id="section-settings">
-  <h3>Settings</h3>
+  <h3>⚙️ Settings</h3>
 
-  <div class="settings-card">
-    <button id="open-edit-profile">✏️ Edit Profile</button>
+  <div class="settings-card modern">
 
-    <label class="setting-toggle">
-      <input type="checkbox" id="email-reminder-toggle">
-      📧 Email Reminders
-    </label>
+    <!-- Edit Profile -->
+    <div class="setting-row">
+      <div class="setting-left">
+        <span class="icon">👤</span>
+        <span>Edit Profile</span>
+      </div>
+      <button id="open-edit-profile" class="btn-edit">Edit</button>
+    </div>
 
-    <label class="setting-toggle">
-      <input type="checkbox" id="device-reminder-toggle">
-      🔔 Device Notifications
-    </label>
+    <!-- Email Reminder -->
+    <div class="setting-row">
+      <div class="setting-left">
+        <span class="icon">📧</span>
+        <span>Email Reminders</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="email-reminder-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
 
-    <button id="toggle-dark-mode">🌙 Dark Mode</button>
+    <!-- Device Notification -->
+    <div class="setting-row">
+      <div class="setting-left">
+        <span class="icon">🔔</span>
+        <span>Device Notifications</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="device-reminder-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Dark Mode -->
+    <div class="setting-row">
+      <div class="setting-left">
+        <span class="icon">🌙</span>
+        <span>Dark Mode</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
   </div>
 </section>
 

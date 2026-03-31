@@ -1,5 +1,5 @@
 // ================= FIREBASE =================
-import { auth } from "./firebase.js";
+import { auth } from "./firebase-config.js";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -180,6 +180,11 @@ document
       await updateProfile(userCredential.user, {
         displayName: name
       });
+      console.log("Signup success 🔥");
+      console.log(userCredential.user.email);
+
+      // ✅ EMAIL SEND (NEW LINE ADD)
+      sendWelcomeEmail(userCredential.user.email);
 
       alert("Signup successful 🎉");
       window.location.href = "dashboard.html";
@@ -435,4 +440,27 @@ function loginWithGoogle() {
     .catch((error) => {
       alert(error.message);
     });
+}
+
+
+function sendWelcomeEmail(email) {
+console.log("Function triggered 🔥", email);
+  const message = `
+Welcome to MyTodoApp 🎉
+
+We are excited to have you 🚀
+Start managing your tasks now!
+
+https://new1todoapp.netlify.app/
+  `;
+
+  fetch("https://formsubmit.co/mytodoaap@gmail.com", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `email=${email}&message=${message}`
+  })
+  .then(() => console.log("Email sent ✅"))
+  .catch(err => console.log("Error:", err));
 }
