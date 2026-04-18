@@ -7,6 +7,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import { 
+  sendPasswordResetEmail 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import { 
   GoogleAuthProvider, 
   signInWithPopup 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -442,6 +446,30 @@ function loginWithGoogle() {
     });
 }
 
+function openForgotPassword() {
+  const btn = document.querySelector(".forgot-password");
+  const email = document.getElementById("login-email").value.trim();
+
+  if (!email) {
+    alert("Please enter your email first ❗");
+    return;
+  }
+
+  // 🔥 feedback start
+  btn.innerText = "Sending...";
+  btn.style.pointerEvents = "none";
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      btn.innerText = "Email Sent ✅";
+    })
+    .catch((error) => {
+      btn.innerText = "Try Again";
+      btn.style.pointerEvents = "auto";
+      alert(error.message);
+    });
+}
+window.openForgotPassword = openForgotPassword;
 
 function sendWelcomeEmail(email) {
 console.log("Function triggered 🔥", email);
