@@ -2702,7 +2702,7 @@ transform:translateY(0);
 
   padding: 20px;
   transition: 0.35s ease;
-  z-index: 999;
+  z-index: 1000;
 
   box-shadow: 5px 0 25px rgba(0,0,0,0.3);
 }
@@ -3088,5 +3088,24 @@ body {
     width: 100%;
     justify-content: flex-end;
   }
+}
 
+/* ===== SIDEBAR OVERLAY ===== */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  z-index: 999;   /* 👈 LOW */
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
 }

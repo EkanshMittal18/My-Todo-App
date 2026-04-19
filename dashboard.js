@@ -413,39 +413,59 @@ darkModeBtn?.addEventListener("click", () => {
 });
 
 // ================= SIDEBAR =================
-openSidebar?.addEventListener("click", () => sidebar.classList.add("active"));
-closeSidebar?.addEventListener("click", () => sidebar.classList.remove("active"));
 
-sidebarLogout?.addEventListener("click", async () => {
-  await signOut(auth);
-  window.location.href = "index.html";
+const overlay = document.getElementById("overlay");
+
+// OPEN SIDEBAR 🔥
+openSidebar?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+  document.body.style.overflow = "hidden";
 });
 
-editProfileBtn?.addEventListener("click", () => {
-  window.location.href = "profile.html";
+// CLOSE BUTTON
+closeSidebar?.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.style.overflow = "auto";
 });
+
+// OVERLAY CLICK CLOSE
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
+
 
 // ================= NAVIGATION =================
-const menuItems = document.querySelectorAll(".sidebar-menu li[data-target]");
+const menuItems = document.querySelectorAll(".sidebar-menu li");
 const sections = document.querySelectorAll(".dash-section");
 
 menuItems.forEach(item => {
   item.addEventListener("click", () => {
 
+    const target = item.getAttribute("data-target");
+    if (!target) return;
+
+    // ACTIVE CLASS
     menuItems.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
-    const targetId = item.getAttribute("data-target");
 
-    sections.forEach(section => {
-      section.classList.remove("active");
-    });
+    // SECTION SWITCH
+    sections.forEach(section => section.classList.remove("active"));
 
-    const targetSection = document.getElementById(targetId);
+    const targetSection = document.getElementById(target);
     if (targetSection) {
       targetSection.classList.add("active");
     }
 
+    // CLOSE SIDEBAR
     sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+
   });
 });
 
