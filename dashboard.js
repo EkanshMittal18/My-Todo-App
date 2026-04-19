@@ -56,6 +56,7 @@ const darkModeBtn = document.getElementById("dark-mode-toggle");
 let taskChart = null;
 let weeklyChart = null;
 let currentUserId = null;
+let allTasksData = {};
 
 // ================= AUTH =================
 onAuthStateChanged(auth, (user) => {
@@ -236,6 +237,7 @@ function loadTodos() {
 
 // ================= RENDER TODOS =================
 function renderTodos(data) {
+  allTasksData = data || {};
   todoList.innerHTML = "";
 
   let total = 0;
@@ -668,3 +670,120 @@ toast.classList.remove("show");
 },3000);
 
 }
+
+function toggleChatbot() {
+  const bot = document.getElementById("chatbot");
+  const icon = document.querySelector(".chat-toggle");
+
+  // show chatbot
+  bot.classList.remove("hidden");
+  setTimeout(() => bot.classList.add("active"), 10);
+
+  // hide icon
+  icon.classList.add("hidden");
+}
+
+function closeChatbot() {
+  const bot = document.getElementById("chatbot");
+  const icon = document.querySelector(".chat-toggle");
+
+  bot.classList.remove("active");
+
+  setTimeout(() => {
+    bot.classList.add("hidden");
+  }, 300);
+
+  icon.classList.remove("hidden");
+
+  // 🔥 RESET CHAT
+  goBack();
+}
+
+window.toggleChatbot = toggleChatbot;
+window.closeChatbot = closeChatbot;
+
+
+function showTasks() {
+  let html = "<h4>📋 Your Tasks:</h4>";
+
+  const tasks = allTasksData;
+
+  if (!tasks || Object.keys(tasks).length === 0) {
+    html += "<p>No tasks found 😅</p>";
+  } else {
+    Object.entries(tasks).forEach(([id, task]) => {
+      html += `
+        <p class="chat-task" onclick="selectTask('${task.text}')">
+          👉 ${task.text}
+        </p>
+      `;
+    });
+  }
+
+  html += `<br><button onclick="goBack()">⬅ Back</button>`;
+
+  document.getElementById("chat-body").innerHTML = html;
+}
+
+window.showTasks = showTasks;
+
+
+function goBack() {
+  document.getElementById("chat-body").innerHTML = `
+    <p>Hi 👋 Ekansh, kya help karu?</p>
+
+    <button onclick="showTasks()">📋 Your Tasks</button>
+    <button onclick="academicHelp()">📚 Academic Help</button>
+    <button onclick="generalQuery()">❓ Query</button>
+  `;
+}
+window.goBack = goBack;
+
+function selectTask(task) {
+  document.getElementById("chat-body").innerHTML = `
+    <p>🤖 Bhai maine tera task padh liya 👇</p>
+    <b>${task}</b>
+
+    <p>Kaise help karu?</p>
+
+    <button onclick="giveSuggestion('${task}')">💡 Suggestion</button>
+    <button onclick="breakTask('${task}')">📌 Break into steps</button>
+
+    <br><br>
+    <button onclick="showTasks()">⬅ Back</button>
+  `;
+}
+window.selectTask = selectTask;
+
+function giveSuggestion(task) {
+  let suggestion = "";
+
+  if (task.toLowerCase().includes("study")) {
+    suggestion = "📚 2 hour study session + notes bana";
+  } 
+  else if (task.toLowerCase().includes("project")) {
+    suggestion = "💻 Divide into modules + start with UI";
+  } 
+  else {
+    suggestion = "✅ Task ko chhote steps me tod aur deadline set kar";
+  }
+
+  document.getElementById("chat-body").innerHTML += `
+    <p>🤖 ${suggestion}</p>
+  `;
+}
+
+window.giveSuggestion = giveSuggestion;
+
+function breakTask(task) {
+  const steps = `
+    <p>📌 Step 1: Plan bana</p>
+    <p>📌 Step 2: Start small</p>
+    <p>📌 Step 3: Complete one part</p>
+    <p>📌 Step 4: Review</p>
+  `;
+
+  document.getElementById("chat-body").innerHTML += steps;
+}
+
+window.breakTask = breakTask;

@@ -1107,6 +1107,23 @@ transform:scale(1.08);
     }
 }
 
+@media (max-width: 768px) {
+
+  .dashboard-nav {
+    flex-direction: row;
+    padding: 10px 15px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  #profile-email {
+    display: none;
+  }
+
+}
+
 /* ===== TODO ITEM UI ===== */
 .todo-item {
   display: flex;
@@ -1124,6 +1141,7 @@ transform:scale(1.08);
   align-items: center;
   gap: 10px;
   flex: 1;
+  min-width: 0; /* ⭐ IMPORTANT */
 }
 
 .todo-left input[type="checkbox"] {
@@ -1134,6 +1152,7 @@ transform:scale(1.08);
 
 .todo-text {
   font-size: 16px;
+  word-break: break-word; /* text bahar na nikle */
 }
 
 .todo-item.completed .todo-text {
@@ -1143,7 +1162,8 @@ transform:scale(1.08);
 
 .todo-actions {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .todo-actions button {
@@ -2079,16 +2099,19 @@ height:300px;
 display:flex;
 gap:10px;
 margin-bottom:15px;
+flex-wrap: wrap; /* ⭐ IMPORTANT */
 }
 
 .task-controls input{
-flex:1;
+flex: 1 1 60%;
+min-width: 0; /* overflow fix */
 padding:8px;
 border-radius:6px;
 border:1px solid #ccc;
 }
 
 .task-controls select{
+flex: 1 1 35%;
 padding:8px;
 border-radius:6px;
 }
@@ -2832,6 +2855,14 @@ transform:translateY(0);
   transform: translateX(20px);
 }
 
+@media (max-width: 768px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+}
+
 .forgot-password {
   display: inline-block;
   margin-top: 8px;
@@ -2848,4 +2879,214 @@ transform:translateY(0);
 
 .forgot-password:active {
   transform: scale(0.95);
+}
+
+/* FLOAT BUTTON */
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  font-size: 22px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* CHATBOX */
+.chatbot-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* OPEN STATE */
+.chatbot-container.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
+}
+
+.chat-header {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.chat-body {
+  padding: 10px;
+}
+
+.chat-body button {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-body button:hover {
+  background: #ddd;
+}
+
+/* CLOSE BUTTON */
+.chat-close {
+  float: right;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* HIDE ICON WHEN OPEN */
+.chat-toggle.hidden {
+  display: none;
+}
+
+.chat-task {
+  background: #f1f1f1;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-task:hover {
+  background: #ddd;
+}
+
+/* ================= FINAL RESPONSIVE FIX ================= */
+
+/* 📱 SMALL MOBILE (320px - 480px) */
+@media (max-width: 480px) {
+
+  .dashboard-container {
+    padding: 10px 8px;
+  }
+
+  .dashboard-greeting {
+    padding: 16px;
+  }
+
+  .greeting-left h2 {
+    font-size: 20px;
+  }
+
+  .pending-box h3 {
+    font-size: 20px;
+  }
+
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap; /* ⭐ MAIN FIX */
+    gap: 10px;
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .chatbot-container {
+    width: 95%;
+    right: 2.5%;
+    bottom: 70px;
+  }
+
+  .chat-toggle {
+    bottom: 15px;
+    right: 15px;
+  }
+
+}
+
+/* 📲 TABLET VIEW (481px - 1024px) */
+@media (max-width: 1024px) {
+
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    flex: 1 1 45%;
+  }
+
+  .analytics-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-charts {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .chatbot-container {
+    width: 90%;
+    right: 5%;
+  }
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 480px) {
+
+  .task-controls {
+    flex-direction: column;
+  }
+
+  .task-controls input,
+  .task-controls select {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
 }

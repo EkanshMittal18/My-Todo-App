@@ -311,6 +311,29 @@
   </div>
 </section>
 
+<!-- FLOATING CHAT BUTTON -->
+<div class="chat-toggle" onclick="toggleChatbot()">
+  🤖
+</div>
+
+<!-- CHATBOX -->
+<div class="chatbot-container hidden" id="chatbot">
+
+  <div class="chat-header">
+  🤖 Smart Assistant
+  <span class="chat-close" onclick="closeChatbot()">✖</span>
+</div>
+
+  <div class="chat-body" id="chat-body">
+    <p>Hi 👋 Ekansh, kya help karu?</p>
+
+    <button onclick="showTasks()">📋 Your Tasks</button>
+    <button onclick="academicHelp()">📚 Academic Help</button>
+    <button onclick="generalQuery()">❓ Query</button>
+  </div>
+
+</div>
+
 
 <script type="module" src="dashboard.js"></script>
 
