@@ -14,6 +14,8 @@ This is a simple and responsive Todo List web application where users can add, d
 * CSS
 * JavaScript
 * Firebase (for authentication / database)
+* Python
+* React Js
 
 ## ✨ Features
 
@@ -22,6 +24,11 @@ This is a simple and responsive Todo List web application where users can add, d
 * Mark tasks as completed
 * User authentication (if used Firebase)
 * Responsive design
+* Rewards (Streak Counter)
+* Ai ChatBot
+* Dark Mode
+* User Support Via E-mail
+* Anlayis Task Complete Chart (Pie , Histogram , Weekly Report)
 
 ## 📂 Project Setup
 
@@ -31,3 +38,6 @@ This is a simple and responsive Todo List web application where users can add, d
 ## 👨‍💻 Author
 
 * Ekansh Mittal
+* Linkedin - https://www.linkedin.com/in/ekansh-mittal-76b84b320/
+* Instagram - ekanshmittal__
+* Email - ekanshmittal02@gmail.com
