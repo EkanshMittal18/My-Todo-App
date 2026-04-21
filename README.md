@@ -39,5 +39,5 @@ This is a simple and responsive Todo List web application where users can add, d
 
 * Ekansh Mittal
 * Linkedin - https://www.linkedin.com/in/ekansh-mittal-76b84b320/
-* Instagram - ekanshmittal__
+* Instagram - https://www.instagram.com/ekanshmittal__?igsh=b2Rtc2J0d2VkZjAy
 * Email - ekanshmittal02@gmail.com
