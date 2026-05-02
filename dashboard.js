@@ -807,3 +807,38 @@ function breakTask(task) {
 }
 
 window.breakTask = breakTask;
+
+let deferredPrompt;
+
+const installBtn = document.getElementById("install-btn");
+
+// PWA trigger capture
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  if (installBtn) {
+    installBtn.style.display = "block";
+  }
+});
+
+// Install button click
+installBtn?.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+
+  const choice = await deferredPrompt.userChoice;
+
+  if (choice.outcome === "accepted") {
+    console.log("User installed app ✅");
+  }
+
+  deferredPrompt = null;
+});
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("SW Registered"))
+    .catch(err => console.log(err));
+}
